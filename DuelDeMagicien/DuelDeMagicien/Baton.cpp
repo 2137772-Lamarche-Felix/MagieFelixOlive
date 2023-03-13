@@ -2,19 +2,22 @@
 
 Baton::Baton()
 {
+    bool sort;
 	int choixAttaque{ rand() % 2 };
 	int choixDefense{ rand() % 2 };
     if (choixAttaque == 0) {
         m_sortAttaque = new SortAttaque("Incinérateur", 20, false);
+        sort = true;
     }
     else {
         m_sortAttaque = new SortAttaque("Foudre", 30, true);
+        sort = false;
     }
     if (choixDefense == 0) {
-        m_sortDefense = new SortDefense("Guérison", -10, 0, 20);
+        m_sortDefense = new SortDefense("Guérison", 0,20);
     }
     else {
-        m_sortDefense = new SortDefense("Protection", -5, 10, 0);
+        m_sortDefense = new SortDefense("Protection", 15,0);
     }
     m_nom = m_sortAttaque->getNom() + " de " + m_sortDefense->getNom();
 
@@ -26,15 +29,15 @@ Baton::~Baton()
 
 std::string Baton::getNom()
 {
-    return std::string();
+    return m_nom;
 }
 
 SortAttaque* Baton::getSortAttaque()
 {
-    return nullptr;
+    return m_sortAttaque;
 }
 
 SortDefense* Baton::getSortDefense()
 {
-    return nullptr;
+    return m_sortDefense;
 }
