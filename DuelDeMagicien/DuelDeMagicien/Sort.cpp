@@ -33,6 +33,11 @@ bool SortAttaque::getIgnoreBouclier()
     return m_ignoreBouclier;
 }
 
+int SortAttaque::getDmg()
+{
+    return m_dmg;
+}
+
 int SortDefense::ajoutVieBouclier()
 {
     int point = m_ajoutBouclier + m_ajoutVie;

@@ -1,17 +1,16 @@
 #include "Baton.h"
+#include "utilitaire.h"
 
 Baton::Baton()
 {
-    bool sort;
-	int choixAttaque{ rand() % 2 };
-	int choixDefense{ rand() % 2 };
+    utilitaire rand;
+    int choixAttaque = rand.rng(0, 2);
+	int choixDefense = rand.rng(0,2);
     if (choixAttaque == 0) {
         m_sortAttaque = new SortAttaque("Incinérateur", 20, false);
-        sort = true;
     }
     else {
         m_sortAttaque = new SortAttaque("Foudre", 30, true);
-        sort = false;
     }
     if (choixDefense == 0) {
         m_sortDefense = new SortDefense("Guérison", 0,20);

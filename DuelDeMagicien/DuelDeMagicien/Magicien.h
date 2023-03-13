@@ -13,11 +13,22 @@ private:
 	std::string m_nomSort;
 
 public:
-	Magicien(std::string nom,int vie,int mana,int bouclier,Baton baton);
+	Magicien(std::string nom);
 	~Magicien();
-	//fonction qui retourne le nom de l'attaque
-	std::string Attaque(Baton baton);
-	//fonction qui retourne le nom de la défense
-	std::string Defense(Baton baton);
+	Baton* getBaton();
+	//fonction qui retourne le nom de l'attaque et ajuste la vie et le bouclier
+	//du sorcier visé
+	//en paramètre c'est le sorcier visé par l'attaque
+	std::string Attaque(Magicien mage);
+	//fonction qui retourne le nom de la défense et ajuste la vie et le bouclier
+	//du sorcier actuel
+	std::string Defense();
+	//remplace le baton du sorcier actuel par un nouveau baton
+	//si le mana a atteint 0
+	void verifMana();
+
+	bool getVie();
+
+	int* points();
 };
 
